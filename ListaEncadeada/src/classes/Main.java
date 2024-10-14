@@ -8,13 +8,17 @@ public class Main {
 		ChainedList list = new ChainedList();
 		
 		list.setList("1");
-		list.setList("1");
-		list.setList("1");
-		list.setList("1");
+		list.setList("2");
+		list.setList("3");
+		list.setList("4");
 		
 		list.printList();
 		
-		System.out.println("teste 5");
+		list.removeList("3");
+		
+		list.printList();
+		
+		
 		
 	}
 }

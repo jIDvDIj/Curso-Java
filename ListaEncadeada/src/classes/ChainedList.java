@@ -13,9 +13,19 @@ public class ChainedList{
 		 head = newNo;
 	}
 	
+	public void removeList(String value) {
+		No itemList = head;
+		while(itemList.getNext() != null) {
+			if(itemList.getNext().getInfo().equals(value)) {
+				itemList.setNext(itemList.getNext().getNext());
+			}
+			itemList = itemList.getNext();
+		}
+	}
+	
 	public void printList() {
 		No print = head;
-		while(print.getNext() != null) {
+		while(print != null) {
 			System.out.print(print.getInfo() + " ");
 			print = print.getNext();
 		}
