@@ -15,7 +15,14 @@ public class ChainedList{
 	
 	public void removeList(String value) {
 		No itemList = head;
+		
+		if(itemList.getInfo().equals(value)) {
+			head =itemList.getNext();
+			return;
+		}
+		
 		while(itemList.getNext() != null) {
+			
 			if(itemList.getNext().getInfo().equals(value)) {
 				itemList.setNext(itemList.getNext().getNext());
 			}

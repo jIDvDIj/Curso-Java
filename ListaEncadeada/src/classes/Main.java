@@ -14,7 +14,7 @@ public class Main {
 		
 		list.printList();
 		
-		list.removeList("3");
+		list.removeList("4");
 		
 		list.printList();
 		
