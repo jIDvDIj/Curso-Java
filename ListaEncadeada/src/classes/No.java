@@ -2,20 +2,20 @@ package classes;
 
 public class No{
 	
-	private String info;
+	private int info;
 	private No next;
 	
-	public No(String info, No next) {
+	public No(int info, No next) {
 		this.info = info;
 		this.next = next;
 	}
 	
-	public void setinfo(String info) {
+	public void setinfo(int info) {
 		this.info = info;
 		return;
 	}
 	
-	public String getInfo() {
+	public int getInfo() {
 		return info;
 	}
 	

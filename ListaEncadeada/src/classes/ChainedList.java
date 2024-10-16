@@ -8,26 +8,65 @@ public class ChainedList{
 		this.head = null;
 	}
 	
-	public void setList(String value) {
-		 No newNo = new No(value, head);
-		 head = newNo;
+	public void setList(int value) {
+		No newNo = new No(value, null);
+		 No itemList = head;
+		 No recorderPrevNo = head;
+		 
+		 if(head == null) {
+			 head = newNo;
+			 return;
+		 }
+		 if(value < head.getInfo()) {
+			 newNo.setNext(head);
+			 head = newNo;
+			 return;
+		 }
+		 while(itemList != null) {
+			 if(itemList.getNext() == null) {
+				 itemList.setNext(newNo);
+				 return;
+			 }
+			 if(value > itemList.getInfo()) {
+				 recorderPrevNo = itemList;
+				 itemList = itemList.getNext();
+				 
+			 }else {
+				 recorderPrevNo.setNext(newNo);
+				 newNo.setNext(itemList);
+				 return;
+			 }
+		 }
+		 
+		 
+		 
 	}
 	
-	public void removeList(String value) {
+	public void removeList(int value) {
 		No itemList = head;
 		
-		if(itemList.getInfo().equals(value)) {
-			head =itemList.getNext();
+		if(itemList == null) {
+			System.out.println("The list is empty");
 			return;
 		}
 		
-		while(itemList.getNext() != null) {
-			
-			if(itemList.getNext().getInfo().equals(value)) {
+		if(itemList.getInfo() == value) {
+			head = itemList.getNext();
+			return;
+		}
+		
+		while(itemList != null) {
+			if(itemList.getNext() == null) {
+				System.out.println("Não pertence a lista.");
+				return;
+			}
+			if(itemList.getNext().getInfo() == value) {
 				itemList.setNext(itemList.getNext().getNext());
+				return;
 			}
 			itemList = itemList.getNext();
 		}
+		
 	}
 	
 	public void printList() {
