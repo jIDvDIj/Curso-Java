@@ -11,7 +11,7 @@ public class ChainedList{
 	public void setList(int value) {
 		No newNo = new No(value, null);
 		 No itemList = head;
-		 No recorderPrevNo = head;
+		 No PrevNo = head;
 		 
 		 if(head == null) {
 			 head = newNo;
@@ -27,13 +27,13 @@ public class ChainedList{
 				 itemList.setNext(newNo);
 				 return;
 			 }
-			 if(value > itemList.getInfo()) {
-				 recorderPrevNo = itemList;
+			 if(value > itemList.getNext().getInfo()) {
+				 PrevNo = itemList;
 				 itemList = itemList.getNext();
 				 
 			 }else {
-				 recorderPrevNo.setNext(newNo);
-				 newNo.setNext(itemList);
+				 newNo.setNext(itemList.getNext());
+				 itemList.setNext(newNo);
 				 return;
 			 }
 		 }
@@ -58,6 +58,10 @@ public class ChainedList{
 		while(itemList != null) {
 			if(itemList.getNext() == null) {
 				System.out.println("Não pertence a lista.");
+				return;
+			}
+			if(itemList.getInfo()>value) {
+				System.out.println("The number isn't in list");
 				return;
 			}
 			if(itemList.getNext().getInfo() == value) {
