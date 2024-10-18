@@ -19,7 +19,7 @@ public class Main {
 		
 		list.printList();
 		
-		list.removeList(7);
+		list.removeLista(7);
 		
 		list.printList();
 		
