@@ -11,7 +11,6 @@ public class ChainedList{
 	public void setList(int value) {
 		No newNo = new No(value, null);
 		 No itemList = head;
-		 No PrevNo = head;
 		 
 		 if(head == null) {
 			 head = newNo;
@@ -28,7 +27,6 @@ public class ChainedList{
 				 return;
 			 }
 			 if(value > itemList.getNext().getInfo()) {
-				 PrevNo = itemList;
 				 itemList = itemList.getNext();
 				 
 			 }else {
