@@ -19,8 +19,6 @@ public class Main {
 		
 		pilha.print();
 		
-		pilha.pop();
-		
 		pilha.print();
 		
 		

@@ -74,17 +74,20 @@ public class Lista {
 					}
 				}
 			}
+
 			if (itemLista.getProx().getInfo() == info) {
-				itemLista.setProx(itemLista.getProx().getProx());
-				if (duplicados == false) {
-					return;
-				} else {
-					contadorRemoção += 1;
-					continue;
+				while (itemLista.getProx().getInfo() == info) {
+
+					itemLista.setProx(itemLista.getProx().getProx());
+					if (duplicados == false) {
+						return;
+					} else {
+						contadorRemoção += 1;
+						continue;
+					}
 				}
 			}
 		}
-
 	}
 
 	public String imprime() {
