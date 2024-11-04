@@ -20,17 +20,26 @@ public class Lista {
 			novoNo.setProx(ref.getProx());
 			ref.setProx(novoNo);
 			return;
+			
 		}
+		
 		if (info > ref.getInfo()) {
 			novoNo.setProx(ref.getProx());
 			ref.setProx(novoNo);
 			ref = novoNo;
+			return;
 		}
 		for (No itemLista = ref.getProx(); itemLista != ref; itemLista = itemLista.getProx()) {
 			if (info < itemLista.getProx().getInfo()) {
 				novoNo.setProx(itemLista.getProx());
 				itemLista.setProx(novoNo);
 				return;
+			}
+			if (itemLista.getProx()==ref) {
+				novoNo.setProx(ref.getProx());
+				ref.setProx(novoNo);
+				ref = novoNo;
+				return; 
 			}
 		}
 
@@ -41,6 +50,13 @@ public class Lista {
 		if (ref == null) {
 			System.out.println("A lista está vazia");
 			return;
+		}
+		
+		if (ref.getProx()==ref) {
+			if(ref.getInfo() == info) {
+				ref = null;
+				return;
+			}
 		}
 
 		for (No itemLista = ref.getProx(); itemLista != ref; itemLista = itemLista.getProx()) {
@@ -72,6 +88,8 @@ public class Lista {
 						contadorRemoção += 1;
 						continue;
 					}
+				} else {
+					System.out.println("O valor não pertence a lista");
 				}
 			}
 
