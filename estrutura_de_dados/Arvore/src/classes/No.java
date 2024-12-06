@@ -6,9 +6,10 @@ public class No {
 	private No esquerda;
 	private int info;
 
-	public No(No direita, int info, No esquerda) {
-		this.direita = direita;
+	public No(No esquerda, int info, No direita) {
 		this.esquerda = esquerda;
+		this.direita = direita;
+		this.info = info;
 	}
 
 	public void setInfo(int info) {
