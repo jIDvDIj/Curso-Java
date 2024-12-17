@@ -1,4 +1,4 @@
-package classes;
+package estruturas.listaCircularDuplamenteEncadeada;
 
 public class Lista {
 
@@ -9,10 +9,11 @@ public class Lista {
 	}
 
 	public void insere(int info) {
-		No novoNo = new No(info, null);
+		No novoNo = new No(null, info, null);
 
 		if (ref == null) {
 			novoNo.setProx(novoNo);
+			novoNo.setAnt(novoNo);
 			ref = novoNo;
 			return;
 		}
@@ -20,26 +21,17 @@ public class Lista {
 			novoNo.setProx(ref.getProx());
 			ref.setProx(novoNo);
 			return;
-			
 		}
-		
 		if (info > ref.getInfo()) {
 			novoNo.setProx(ref.getProx());
 			ref.setProx(novoNo);
 			ref = novoNo;
-			return;
 		}
 		for (No itemLista = ref.getProx(); itemLista != ref; itemLista = itemLista.getProx()) {
 			if (info < itemLista.getProx().getInfo()) {
 				novoNo.setProx(itemLista.getProx());
 				itemLista.setProx(novoNo);
 				return;
-			}
-			if (itemLista.getProx()==ref) {
-				novoNo.setProx(ref.getProx());
-				ref.setProx(novoNo);
-				ref = novoNo;
-				return; 
 			}
 		}
 
@@ -50,13 +42,6 @@ public class Lista {
 		if (ref == null) {
 			System.out.println("A lista está vazia");
 			return;
-		}
-		
-		if (ref.getProx()==ref) {
-			if(ref.getInfo() == info) {
-				ref = null;
-				return;
-			}
 		}
 
 		for (No itemLista = ref.getProx(); itemLista != ref; itemLista = itemLista.getProx()) {
@@ -88,24 +73,19 @@ public class Lista {
 						contadorRemoção += 1;
 						continue;
 					}
-				} else {
-					System.out.println("O valor não pertence a lista");
 				}
 			}
-
 			if (itemLista.getProx().getInfo() == info) {
-				while (itemLista.getProx().getInfo() == info) {
-
-					itemLista.setProx(itemLista.getProx().getProx());
-					if (duplicados == false) {
-						return;
-					} else {
-						contadorRemoção += 1;
-						continue;
-					}
+				itemLista.setProx(itemLista.getProx().getProx());
+				if (duplicados == false) {
+					return;
+				} else {
+					contadorRemoção += 1;
+					continue;
 				}
 			}
 		}
+
 	}
 
 	public String imprime() {

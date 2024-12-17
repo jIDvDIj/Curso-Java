@@ -1,4 +1,4 @@
-package classes;
+package estruturas.listaCircular;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package classes;
+package estruturas.pilha;
 
 public class Pilha {
 	private No topo;
